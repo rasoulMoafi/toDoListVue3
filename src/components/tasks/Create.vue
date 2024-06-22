@@ -20,7 +20,6 @@ import { ref } from "vue";
 import { useTaskStore } from "../../store/task";
 
 const store = useTaskStore();
-const number = ref(0);
 const title = ref("");
 const titleErrorText = ref("");
 

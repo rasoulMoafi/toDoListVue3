@@ -6,16 +6,16 @@
       <div class="modal-content">
 
         <div class="modal-body">
-          <input type="text" class="form-control" v-model="title.title">
+          <input type="text" class="form-control" v-model="newTitle">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" @click="editTask(task)">Save</button>
+          <button type="button" class="btn btn-success" @click="editTask()">Save</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal-backdrop fade show" v-if="showModal"></div>
+  <!-- <div class="modal-backdrop fade show" v-if="showModal"></div> -->
 
 </template>
 
@@ -26,7 +26,8 @@ import { useTaskStore } from "../../store/task";
 const props = defineProps(["task"]);
 const store = useTaskStore();
 const showModal = ref(false)
-const title = ref(props.task)
+const task = ref(props.task)
+const newTitle = ref(props.task.title)
 
 
 function openModal() {
@@ -37,9 +38,8 @@ function closeModal() {
   showModal.value = false
 }
 
-function editTask(title) {
-  console.log('title', title)
-  store.editTasks(title);
+function editTask() {
+  store.editTasks(task.value,newTitle.value);
   closeModal()
 }
 </script>

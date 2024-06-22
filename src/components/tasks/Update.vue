@@ -15,14 +15,6 @@
     data-placement="top"
     title="Not Done"
   ></span>
-  <span
-    v-else
-    @click="updateTask(task)"
-    class="bi bi-hourglass-split pointer"
-    data-toggle="tooltip"
-    data-placement="top"
-    title="Doing"
-  ></span>
 
 </template>
 
